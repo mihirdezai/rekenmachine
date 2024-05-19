@@ -1,5 +1,7 @@
 import { MouseEvent, useState } from 'react'
 import Button from './components/Button'
+import SunIcon from './components/SunIcon'
+import MoonIcon from './components/MoonIcon'
 
 const buttons = [
   [7, 8, 9, '÷'],
@@ -15,6 +17,8 @@ function App() {
   const [operand, setOperand] = useState<number | null>(null)
   const [operator, setOperator] = useState<string | null>(null)
   const [waitingForOperand, setWaitingForOperand] = useState<boolean>(false)
+
+  const [theme, setTheme] = useState<string>('light')
 
   const handleOnClick = (event: MouseEvent, value: Number | string) => {
     event.preventDefault()
@@ -100,10 +104,24 @@ function App() {
     }
   }
 
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
+  }
+
   return (
-    <div className="h-screen font-mono bg-gray-100 dark:bg-gray-900">
+    <div className={`${theme} h-screen font-mono bg-gray-100 dark:bg-gray-900`}>
       <div className="container pt-32 mx-auto">
-        <div className="flex flex-col items-center mx-auto w-[340px] h-[540px]">
+        <div className="flex flex-col items-center mx-auto w-[340px]">
+          <div
+            className="flex items-center justify-center w-12 h-12 mb-12 rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-500"
+            onClick={() => toggleTheme()}
+          >
+            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+          </div>
           <div className="w-full max-w-md p-4 bg-white shadow-lg rounded-2xl dark:bg-gray-800">
             <div className="mb-4">
               <input
