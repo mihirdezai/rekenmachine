@@ -114,7 +114,7 @@ function App() {
 
   return (
     <div className={`${theme} h-screen font-mono bg-gray-100 dark:bg-gray-900`}>
-      <div className="container pt-32 mx-auto">
+      <div className="container pt-16 mx-auto">
         <div className="flex flex-col items-center mx-auto w-[340px]">
           <div
             className="flex items-center justify-center w-12 h-12 mb-12 rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-500"
