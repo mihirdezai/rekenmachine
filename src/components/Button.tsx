@@ -1,7 +1,7 @@
 import { MouseEventHandler } from 'react'
 
 interface ButtonProps {
-  value: string
+  value: number | string
   type: string
   onClick: MouseEventHandler<HTMLButtonElement>
 }
@@ -16,7 +16,7 @@ function Button({ value, type, onClick }: ButtonProps) {
       }`}
       onClick={onClick}
     >
-      {value}
+      {value.toString()}
     </button>
   )
 }
